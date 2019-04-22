@@ -1,0 +1,32 @@
+{ "questionArray": 
+ [
+  {
+   "meta-data":"unused",
+   "questionText": "If a good hash function is found and a reasonable table size is used for a hash table, then the operations of put, remove, and get should achieve an average time complexity of _____ where $N$ is the number of items and $TS$ is the size of the table.",
+   "topic": "hash table",
+   "image":"goodhash2_AK.jpg",
+   "choiceArray": 
+    [
+     {"iscorrect":"T","choice":"$O(1)$"},  
+     {"iscorrect":"F","choice":"$O(log N)$"},
+     {"iscorrect":"F","choice":"$O(log_{TS} N)$"},
+     {"iscorrect":"F","choice":"$O(N^{TS})$"},
+     {"iscorrect":"F","choice":"$O(N)$"}
+    ]
+  },
+  {
+   "meta-data":"unused",
+   "questionText": "Which command will change the current working directory to a sub-directory named $p3$?",
+   "topic": "linux",
+   "imageFile":"none",
+   "choiceArray":   
+    [
+     {"iscorrect":"F","choice":"pwd"},
+     {"iscorrect":"F","choice":"cwd"},
+     {"iscorrect":"F","choice":"cp"},
+     {"iscorrect":"T","choice":"cd"},
+     {"iscorrect":"F","choice":"mkdir"}
+    ]
+  }
+ ] 
+}
