@@ -36,7 +36,7 @@ public class Main extends Application {
 			BorderPane root = new BorderPane();
 			Label topLabel = new Label("Quiz Generator v1.0 -- ateam100");
 			root.setTop(topLabel);
-			Scene start = new Scene(root, 1366, 768);
+			Scene start = new Scene(root, 800, 800);
 			start.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 
 			// STARTSCENE
@@ -82,7 +82,7 @@ public class Main extends Application {
 			// TextArea blankArea = new TextArea();
 			// HBox generateBox = new HBox(questionBox,blankArea);
 			// questionBox.setMargin(questionBox.getChildren().get(2), 5);
-			Scene generateQuiz = new Scene(newrootBorderPane, 1366, 768);
+			Scene generateQuiz = new Scene(newrootBorderPane, 800, 800);
 
 			// HBox startQuestion = new HBox();
 
@@ -100,12 +100,12 @@ public class Main extends Application {
 			VBox loadBox = new VBox(15, welcome, loadLabel, subBox);
 			loadBox.setAlignment(Pos.CENTER);
 			loadPane.setCenter(loadBox);
-			LoadQuestions = new Scene(loadPane, 1366, 768);
+			LoadQuestions = new Scene(loadPane, 800, 800);
 			// action for StartButton1
 			
 			//scene for adding one question
 			BorderPane add1Q = new BorderPane();
-			AddQuestions = new Scene(add1Q, 1366, 768);
+			AddQuestions = new Scene(add1Q, 800, 800);
 			HBox totalBox = new HBox();
 			VBox leftBox = new VBox();
 			VBox rightBox = new VBox();
@@ -137,7 +137,7 @@ public class Main extends Application {
 			
 			//scene for quiz
 			BorderPane quiz = new BorderPane();
-			QuizStart = new Scene(quiz, 1366, 768);
+			QuizStart = new Scene(quiz, 800, 800);
 			Label quesion = new Label("1. Find the probability of selecting none of the correct six \n"
 									+ " intergers in a lottery, where the order in which these integers \n"
 									+ " are selected does not matter, from the positve integers not \n "
