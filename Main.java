@@ -13,6 +13,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -34,8 +36,8 @@ public class Main extends Application {
 			BorderPane root = new BorderPane();
 			Label topLabel = new Label("Quiz Generator v1.0 -- ateam100");
 			root.setTop(topLabel);
-			Scene scene = new Scene(root, 400, 400);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			Scene start = new Scene(root, 400, 400);
+			start.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 
 			// STARTSCENE
 			Label welcome = new Label("Welcome to Quiz Generator!");
@@ -98,18 +100,19 @@ public class Main extends Application {
 			VBox loadBox = new VBox(15, welcome, loadLabel, subBox);
 			loadBox.setAlignment(Pos.CENTER);
 			loadPane.setCenter(loadBox);
-			Scene loadQuiz = new Scene(loadPane, 400, 400);
+			LoadQuestions = new Scene(loadPane, 400, 400);
 			// action for StartButton1
 			
+			//scene for adding one question
 			BorderPane add1Q = new BorderPane();
-			Scene addSingleQ = new Scene(add1Q, 400, 400);
+			AddQuestions = new Scene(add1Q, 400, 400);
 			HBox totalBox = new HBox();
 			VBox leftBox = new VBox();
 			VBox rightBox = new VBox();
 			Label subtitle = new Label("Add Question");
 			Label qName = new Label("Question (Required)");
 			Label tName = new Label("Topic (Required");
-			Label image = new Label("Image (File Path)");
+			Label imagePath = new Label("Image (File Path)");
 			Label choices = new Label("Choice (Required)");
 			Label prompt = new Label("Please Follow the required style: \n True XXXX or False YYYY");
 			Button add = new Button("Add");
@@ -121,7 +124,7 @@ public class Main extends Application {
 			iField.setPrefSize(80, 10);
 			TextField cField = new TextField();
 			cField.setPrefSize(80, 80);
-			leftBox.getChildren().addAll(subtitle, qName, qField, tName, tField, image, iField);
+			leftBox.getChildren().addAll(subtitle, qName, qField, tName, tField, imagePath, iField);
 			leftBox.setSpacing(15);
 			leftBox.setAlignment(Pos.CENTER);
 			rightBox.getChildren().addAll(choices, cField, prompt, add);
@@ -132,17 +135,43 @@ public class Main extends Application {
 			totalBox.setAlignment(Pos.CENTER);
 			add1Q.setCenter(totalBox);
 			
+			//scene for quiz
+			BorderPane quiz = new BorderPane();
+			QuizStart = new Scene(quiz, 400, 400);
+			Label quesion = new Label("1. Find the probability of selecting none of the correct six \n"
+									+ " intergers in a lottery, where the order in which these integers \n"
+									+ " are selected does not matter, from the positve integers not \n "
+									+ "exceeding?");
+			RadioButton ch1 = new RadioButton("40");
+			RadioButton ch2 = new RadioButton("48");
+			RadioButton ch3 = new RadioButton("56");
+			RadioButton ch4 = new RadioButton("64");
+			ImageView image = new ImageView("timg.jpg");
+			Button confirm = new Button("Confirm");
+			confirm.setAlignment(Pos.CENTER_RIGHT);
+			VBox choiceBox = new VBox(ch1, ch2, ch3, ch4);
+			choiceBox.setSpacing(10);
+			choiceBox.setAlignment(Pos.CENTER);
+			HBox answerPart = new HBox(30, choiceBox, image);
+			answerPart.setAlignment(Pos.CENTER);
+			VBox quizBox = new VBox(quesion, answerPart);
+			quizBox.setAlignment(Pos.CENTER);
+			quiz.setCenter(quizBox);
+			quiz.setBottom(confirm);
+			
+			
+			
 			buttonAddQuestionButton.setOnAction(new EventHandler<ActionEvent>() {
 				@Override
 				public void handle(ActionEvent event) {
-					primaryStage.setScene(addSingleQ);
+					primaryStage.setScene(AddQuestions);
 				}
 			});
 			
 			add.setOnAction(new EventHandler<ActionEvent>() {
 				@Override
 				public void handle(ActionEvent event) {
-					primaryStage.setScene(scene);
+					primaryStage.setScene(Main.this.start);
 				}
 			});
 			
@@ -157,7 +186,7 @@ public class Main extends Application {
 			buttonLoadQ.setOnAction(new EventHandler<ActionEvent>() {
 				@Override
 				public void handle(ActionEvent event) {
-					primaryStage.setScene(loadQuiz);
+					primaryStage.setScene(LoadQuestions);
 				}
 			});
 
@@ -165,7 +194,7 @@ public class Main extends Application {
 			startButton2.setOnAction(new EventHandler<ActionEvent>() {
 				@Override
 				public void handle(ActionEvent event) {
-					primaryStage.setScene(generateQuiz);
+					primaryStage.setScene(QuizStart);
 				}
 			});
 
@@ -176,7 +205,7 @@ public class Main extends Application {
 
 			// start
 			// Start start = new Start();
-			primaryStage.setScene(scene);
+			primaryStage.setScene(start);
 
 			// nextScene
 			TextArea textArea = new TextArea("Scene Switched!");
