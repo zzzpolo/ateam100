@@ -36,7 +36,7 @@ public class Main extends Application {
 			BorderPane root = new BorderPane();
 			Label topLabel = new Label("Quiz Generator v1.0 -- ateam100");
 			root.setTop(topLabel);
-			Scene start = new Scene(root, 400, 400);
+			Scene start = new Scene(root, 1366, 768);
 			start.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 
 			// STARTSCENE
@@ -49,7 +49,7 @@ public class Main extends Application {
 			Button startButton = new Button("Start");
 			VBox startBox = new VBox(welcome, buttonAddQuestionButton, buttonLoadQ, buttonSave, startButton);
 			startBox.setAlignment(Pos.CENTER);// set Alignment
-			startBox.setSpacing(15);// space between
+			startBox.setSpacing(40);// space between
 			root.setCenter(startBox);
 
 			// set buttons to the same length
@@ -70,6 +70,7 @@ public class Main extends Application {
 			top3 = new RadioButton("Topic3");
 			top4 = new RadioButton("Topic4");
 			TextField quizNum = new TextField();
+			quizNum.setMaxWidth(200);
 			Label NumQuiz = new Label("Number of quetions");
 			Button startButton2 = new Button("Start");
 			VBox questionBox = new VBox(15, generateQuizLabel, topicLabel, top1, top2, top3, top4, NumQuiz, quizNum,
@@ -80,9 +81,8 @@ public class Main extends Application {
 			// questionBox.setSpacing(15);
 			// TextArea blankArea = new TextArea();
 			// HBox generateBox = new HBox(questionBox,blankArea);
-
 			// questionBox.setMargin(questionBox.getChildren().get(2), 5);
-			Scene generateQuiz = new Scene(newrootBorderPane, 400, 400);
+			Scene generateQuiz = new Scene(newrootBorderPane, 1366, 768);
 
 			// HBox startQuestion = new HBox();
 
@@ -100,12 +100,12 @@ public class Main extends Application {
 			VBox loadBox = new VBox(15, welcome, loadLabel, subBox);
 			loadBox.setAlignment(Pos.CENTER);
 			loadPane.setCenter(loadBox);
-			LoadQuestions = new Scene(loadPane, 400, 400);
+			LoadQuestions = new Scene(loadPane, 1366, 768);
 			// action for StartButton1
 			
 			//scene for adding one question
 			BorderPane add1Q = new BorderPane();
-			AddQuestions = new Scene(add1Q, 400, 400);
+			AddQuestions = new Scene(add1Q, 1366, 768);
 			HBox totalBox = new HBox();
 			VBox leftBox = new VBox();
 			VBox rightBox = new VBox();
@@ -131,13 +131,13 @@ public class Main extends Application {
 			rightBox.setSpacing(15);
 			rightBox.setAlignment(Pos.CENTER);
 			totalBox.getChildren().addAll(leftBox, rightBox);
-			totalBox.setSpacing(20);
+			totalBox.setSpacing(50);
 			totalBox.setAlignment(Pos.CENTER);
 			add1Q.setCenter(totalBox);
 			
 			//scene for quiz
 			BorderPane quiz = new BorderPane();
-			QuizStart = new Scene(quiz, 400, 400);
+			QuizStart = new Scene(quiz, 1366, 768);
 			Label quesion = new Label("1. Find the probability of selecting none of the correct six \n"
 									+ " intergers in a lottery, where the order in which these integers \n"
 									+ " are selected does not matter, from the positve integers not \n "
