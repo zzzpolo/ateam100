@@ -16,7 +16,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.TextAlignment;
+import javafx.scene.text.Text;
 
 public class Main extends Application {
 	Stage window;
@@ -68,19 +68,19 @@ public class Main extends Application {
 			top3 = new RadioButton("Topic3");
 			top4 = new RadioButton("Topic4");
 			TextField quizNum = new TextField();
-			Label NumQuiz = new Label("Number of Quiz");
+			Label NumQuiz = new Label("Number of quetions");
 			Button startButton2 = new Button("Start");
 			VBox questionBox = new VBox(15, generateQuizLabel, topicLabel, top1, top2, top3, top4, NumQuiz, quizNum,
 					startButton2);
 			questionBox.setAlignment(Pos.CENTER);
 			newrootBorderPane.setTop(welcome);
-			newrootBorderPane.setLeft(questionBox);
+			newrootBorderPane.setCenter(questionBox);
 			// questionBox.setSpacing(15);
 			// TextArea blankArea = new TextArea();
 			// HBox generateBox = new HBox(questionBox,blankArea);
 
 			// questionBox.setMargin(questionBox.getChildren().get(2), 5);
-			Scene generateQuiz = new Scene(newrootBorderPane);
+			Scene generateQuiz = new Scene(newrootBorderPane, 400, 400);
 
 			// HBox startQuestion = new HBox();
 
@@ -90,10 +90,62 @@ public class Main extends Application {
 			TextField filePathField = new TextField();
 			Button loadButton = new Button("Load");
 			BorderPane loadPane = new BorderPane();
-			loadPane.setTop(welcome);
-			loadPane.setCenter(new VBox(loadLabel, readFileLabel, new HBox(filePathField, loadButton)));
-			Scene loadQuiz = new Scene(loadPane);
+//			loadPane.setTop(welcome);
+			HBox readPath =  new HBox(filePathField, loadButton);
+			readPath.setAlignment(Pos.CENTER);
+			VBox subBox = new VBox(readFileLabel,readPath);
+			subBox.setAlignment(Pos.CENTER);
+			VBox loadBox = new VBox(15, welcome, loadLabel, subBox);
+			loadBox.setAlignment(Pos.CENTER);
+			loadPane.setCenter(loadBox);
+			Scene loadQuiz = new Scene(loadPane, 400, 400);
 			// action for StartButton1
+			
+			BorderPane add1Q = new BorderPane();
+			Scene addSingleQ = new Scene(add1Q, 400, 400);
+			HBox totalBox = new HBox();
+			VBox leftBox = new VBox();
+			VBox rightBox = new VBox();
+			Label subtitle = new Label("Add Question");
+			Label qName = new Label("Question (Required)");
+			Label tName = new Label("Topic (Required");
+			Label image = new Label("Image (File Path)");
+			Label choices = new Label("Choice (Required)");
+			Label prompt = new Label("Please Follow the required style: \n True XXXX or False YYYY");
+			Button add = new Button("Add");
+			TextField qField = new TextField();
+			qField.setPrefSize(80, 80);
+			TextField tField = new TextField();
+			tField.setPrefSize(80, 10);
+			TextField iField = new TextField();
+			iField.setPrefSize(80, 10);
+			TextField cField = new TextField();
+			cField.setPrefSize(80, 80);
+			leftBox.getChildren().addAll(subtitle, qName, qField, tName, tField, image, iField);
+			leftBox.setSpacing(15);
+			leftBox.setAlignment(Pos.CENTER);
+			rightBox.getChildren().addAll(choices, cField, prompt, add);
+			rightBox.setSpacing(15);
+			rightBox.setAlignment(Pos.CENTER);
+			totalBox.getChildren().addAll(leftBox, rightBox);
+			totalBox.setSpacing(20);
+			totalBox.setAlignment(Pos.CENTER);
+			add1Q.setCenter(totalBox);
+			
+			buttonAddQuestionButton.setOnAction(new EventHandler<ActionEvent>() {
+				@Override
+				public void handle(ActionEvent event) {
+					primaryStage.setScene(addSingleQ);
+				}
+			});
+			
+			add.setOnAction(new EventHandler<ActionEvent>() {
+				@Override
+				public void handle(ActionEvent event) {
+					primaryStage.setScene(scene);
+				}
+			});
+			
 			startButton.setOnAction(new EventHandler<ActionEvent>() {
 				@Override
 				public void handle(ActionEvent event) {
