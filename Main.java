@@ -1,5 +1,7 @@
 package application;
 
+import java.awt.event.MouseWheelEvent;
+
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -8,6 +10,7 @@ import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
@@ -57,12 +60,17 @@ public class Main extends Application {
 			BorderPane newrootBorderPane = new BorderPane();
 			Label generateQuizLabel = new Label("Generate Quiz");
 			Label topicLabel = new Label("Topic (MultipleChoice)");
-			TextField topicArea = new TextField();
-			TextArea topics = new TextArea("TopicA\nTopicB\nTopicC\n");
+//			TextField topicArea = new TextField();
+//			TextArea topics = new TextArea("TopicA\nTopicB\nTopicC\n");
+			RadioButton top1,top2,top3,top4;
+			top1 = new RadioButton("Topic1");
+			top2 = new RadioButton("Topic2");
+			top3 = new RadioButton("Topic3");
+			top4 = new RadioButton("Topic4");
 			TextField quizNum = new TextField();
 			Label NumQuiz = new Label("Number of Quiz");
 			Button startButton2 = new Button("Start");
-			VBox questionBox = new VBox(15, generateQuizLabel, topicLabel, topicArea, topics, NumQuiz, quizNum,
+			VBox questionBox = new VBox(15, generateQuizLabel, topicLabel, top1, top2, top3, top4, NumQuiz, quizNum,
 					startButton2);
 			questionBox.setAlignment(Pos.CENTER);
 			newrootBorderPane.setTop(welcome);
@@ -132,10 +140,10 @@ public class Main extends Application {
 		}
 	}
 
-	public void sceneStart() {
-		Start start = new Start();
-
-	}
+//	public void sceneStart() {
+//		Start start = new Start();
+//
+//	}
 
 	public static void main(String[] args) {
 		launch(args);
